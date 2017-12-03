@@ -11,8 +11,8 @@ endif
 all: build/main.pdf
 
 # hier Python-Skripte:
-build/plot.pdf: contet/python/5a_R_eff.py matplotlibrc header-matplotlib.tex | build
-	TEXINPUTS="$(call translate,$(pwd):)" python contet/python/5a_R_eff.py
+build/plot1.pdf: content/python/5a_R_eff.py matplotlibrc header-matplotlib.tex | build
+	TEXINPUTS="$(call translate,$(pwd):)" python content/python/5a_R_eff.py
 
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
 build/main.pdf: build/plot1.pdf
