@@ -8,10 +8,10 @@ A, t = np.genfromtxt('../../content/values/',unpack=True)
 
 print(A, t)
 
-t *= 10^(-6)
+t *= 1e-6
 
 def f(x, b):
-    return e^(-x) + b
+    return np.exp(-x) + b
    # return x*b**2-b**3*y
 
 parameters, pcov = curve_fit(f, A, t)
