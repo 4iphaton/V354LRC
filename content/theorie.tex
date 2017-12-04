@@ -82,11 +82,35 @@ Der Grenzfall tritt für $T\to\infty$ auf:
 \end{figure}
 
 Für die folgenden Versuchsteile wird ein gekoppelter Schwingkreis
-wie in Abbildung \ref{fig:kreis2} verwendet. Zunächst wird die Abhängigkeit
-der Kondensatorspannung von der Frequenz berechnet.
+wie in Abbildung \ref{fig:kreis2} verwendet. Die DGL lautet nun:
+\begin{equation}
+  U_C(t)+U_R(t)+U_L(t)=U_0e^{i\omega t}
+  \label{eqn:kreis3}
+\end{equation}
+ Zunächst wird die Abhängigkeit
+der Kondensatorspannung $U_C$ von der Frequenz $\omega$ berechnet.
 zu diesem Zweck wird eine Güte q berechnet:
 \begin{equation}
-  q_exp=\frac{U_c}{U_\text{erreger}}
+  q_\text{exp}=\frac{U_c}{U_\text{erreger}}
+  \label{eqn:qexp}
 \end{equation}
 Diese wird verglichen mit der theoretischen Güteziffer welche sich durch die physikalischen
-Eigenschaften des 
+Eigenschaften des Schwingkreises, sprich $L$, $R$ und $C$, berechnen lässt:
+\begin{equation}
+  q_\text{theo}=\frac{1}{R}\sqrt{\frac{L}{C}}
+    \label{eqn:qtheo}
+\end{equation}
+Trägt man $U_C$ gegen $\omega$ auf erhält man eine Glockenkurve deren Breite errechnet wird durch:
+\begin{equation}
+  \omega_+-\omega_-=\frac{R}{L}
+  \label{eqn:breite}
+\end{equation}
+
+\subsection{Frequenzabhängigkeit der Phase}
+Des weiteren lässt sich eine Phase $\phi$ zwischen der Erregerspannung
+$U_\text{erreger}$ und der Kondensatorspannung $U_\text{kondensator}$  feststellen und über
+die Lösung der DGL \eqref{eqn:kreis3} unter Berücksichtigung der komplexen Impendanz Z berechnen nach:
+\begin{equation}
+  \phi = \text{arctan}\left(\frac{-\omega RC}{1-LC\omega^2}\right)
+  \label{eqn:phase}
+\end{equation}
