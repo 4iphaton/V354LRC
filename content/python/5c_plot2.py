@@ -13,13 +13,13 @@ R_1 = ufloat(48.1, 0.1)
 R_2 = ufloat(509.5, 0.5)
 R_g = 50
 
-U_c , nu = np.genfromtxt('content/values/kondensatorspannung_val.txt',unpack=True)
+U , nu = np.genfromtxt('content/values/kondensatorspannung_val.txt',unpack=True)
 
 nu *= 1000
-U_c = U_c/10
+U = U/10
 
-print( "U_c", U_c, "nu", nu)
-U_c_log = np.log(U_c)
+print( "U_c", U, "nu", nu)
+
 
 
 U_max = 39
@@ -31,19 +31,21 @@ b_t = (R_2+R_g)/L
 
 print("t", q_t, "e", q_e, b_t )#"res", w_res )
 #abs. 1
-u_b = ((1/np.sqrt(2))*(U_max)/10
+Ua = (1/unp.sqrt(2))*(U_max/10)
 
-plt.plot(nu ,U_c ,'r-' ,label='Messwerte' )
-plt.xlimit(25000, 45000)
+plt.plot(nu ,U ,'r-' ,label='Messwerte' )
+plt.xlim(27500, 40000, 14)
+plt.ylim(2, 4)
 plt.grid()
+#def konst(x):
+#    return Ua * (x/x)
 
-
-plt.axhline(u_b)
-#plt.axvline
+plt.axhline(Ua)
+plt.axvline(2)
 
 plt.xlabel(r'$nu/[1/s]$')
 plt.ylabel(r'$U_c/U$')
 plt.legend(loc='best')
 plt.tight_layout()
 plt.savefig('build/plot3.pdf')
-print('-----------------')
+print('------------------')
