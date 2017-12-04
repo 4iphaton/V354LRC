@@ -42,33 +42,17 @@ b_t = (R_2+R_g)/L
 #ln = np.linspace(nu[0],nu[len(nu)-1], 4)
 
 #plt.plot(ln, f(ln, *parameters), 'g-', label='Fit')
-plt.plot(nu , U_c_log ,'bx',label='Messwerte')
+plt.plot(nu , U_c ,'rx',label='Messwerte')
 
 
-#plt.axhline(U_b)
+plt.axhline(U_b)
 #plt.axvline
 #plt.plot(nup , 'rb', label='nup')
 #plt.xscale('log')
 #plt.yscale('log')
 
 plt.xlabel(r'$nu/[1/s]$')
-plt.ylabel(r'$log(U_c/U)$')
-plt.legend(loc='best')
-plt.tight_layout()
-plt.savefig('build/plot2.pdf')
-print('----------------')
-
-plt.plot(nu , U_c_log ,'bx',label='Messwerte')
-
-
-plt.axhline(U_b, 'r--')
-#plt.axvline
-#plt.plot(nup , 'rb', label='nup')
-#plt.xscale('log')
-#plt.yscale('log')
-
-plt.xlabel(r'$nu/[1/s]$')
-plt.ylabel(r'$log(U_c/U)$')
+plt.ylabel(r'$U_c/U$')
 plt.legend(loc='best')
 plt.tight_layout()
 plt.savefig('build/plot2.pdf')

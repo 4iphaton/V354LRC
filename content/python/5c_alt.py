@@ -81,3 +81,21 @@ print('... von der Breite der Resonanzkurve =', xx)
 
 yy = np.abs((q2-q1)/q2)
 print('... von q =', yy)
+
+
+
+plt.plot(nu , U_c ,'rx',label='Messwerte')
+
+
+plt.axhline(U_b)
+#plt.axvline
+#plt.plot(nup , 'rb', label='nup')
+#plt.xscale('log')
+#plt.yscale('log')
+
+plt.xlabel(r'$nu/[1/s]$')
+plt.ylabel(r'$U_c/U$')
+plt.legend(loc='best')
+plt.tight_layout()
+plt.savefig('build/plot3.pdf')
+print('----------------')
