@@ -18,7 +18,7 @@ U_c , nu = np.genfromtxt('content/values/kondensatorspannung_val.txt',unpack=Tru
 nu *= 1000
 
 print( "U_c", U_c, "nu", nu)
-U_c = np.log(U_c)
+U_c_log = np.log(U_c)
 #nu = np.log(nu)
 #def f(x, a, b):
     #return b*np.exp(-a*x**2)
@@ -27,12 +27,15 @@ U_max = 39
 q_e = U_max/10
 q_t = (1/(R_2+R_g))*unp.sqrt(L/C)
 w_0 = 34000
-#w_res = unp.sqrt((1/(L*C))-((R_2+R_g)**2/(2*(L)**2)))
+w_res = unp.sqrt((1/(L*C))-((R_2+R_g)**2/(2*(L)**2)))
 #nup= (1/(2)**(1/2))*39
 print("t", q_t, "e", q_e, )#"res", w_res )
 #abs. 1
-b_r= w_0/q_e
-print("breite", b_r)
+U_b = (1/np.sqrt(2))*U_max
+b_e= w_0/q_e
+b_t = (R_2+R_g)/L
+a_b= (w_res-w_0)/w_res
+print("breite", b_e, "theo", b_t, "ab", a_b)
 #parameters, pcov = curve_fit(f, U_c, nu)
 #errors = np.sqrt(np.diag(pcov))
 #print(parameters, errors, sep='\n')
@@ -40,7 +43,8 @@ print("breite", b_r)
 
 #plt.plot(ln, f(ln, *parameters), 'g-', label='Fit')
 plt.plot(nu , U_c ,'rx',label='Messwerte')
-plt.plot(nup , 'rb', label='nup')
+plt.plot(U_b ,'r-',label='Gerade')
+#plt.plot(nup , 'rb', label='nup')
 #plt.xscale('log')
 #plt.yscale('log')
 
