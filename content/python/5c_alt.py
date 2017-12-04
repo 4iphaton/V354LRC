@@ -1,26 +1,30 @@
-import matplotlib.pyplot as plt
 import numpy as np
+import scipy.constants as const
+from uncertainties import ufloat
+from uncertainties import unumpy as unp
 from scipy.optimize import curve_fit
+import matplotlib.pyplot as plt
+import scipy.constants as const
+import math
 
 U_c , nu = np.genfromtxt('content/values/kondensatorspannung_val.txt',unpack=True)
 nu *= 1e3
 
-Rg = 50
-R2 = 271.6
-R = Rg+R2
-errR2 = 0.3
-L = 3.53e-3
-errL = 0.03e-3
-C = 5.015e-9
-errC = 0.015e-9
+L = ufloat(10.11 , 0.03)*(10 **(-3))
+C = ufloat(2.098, 0.006) *(10 **(-9))
+R_1 = ufloat(48.1, 0.1)
+R_2 = ufloat(509.5, 0.5)
+R_g = 50
+U_max = 39
+U_b = (1/np.sqrt(2))*U_max
 
 t = np.linspace(0, 19, 25)
 
 nu = np.linspace(0, 70)
 
 
-def Uc(t, U0):
-    return U0 / np.sqrt((1 - L*C*(2*np.pi*t)**2)**2 + (2*np.pi*t*R*C)**2)
+def f(x, a):
+    return a / np.sqrt((1 - L*C*(2*np.pi*x)**2)**2 + (2*np.pi*x*R*C)**2)
 
 
 param, cov = curve_fit(Uc, x, y)
@@ -28,13 +32,13 @@ x_plot = np.linspace(0, 1000, 10000)*10**3
 plt.plot(x_plot, Uc(x_plot, *param), 'b-', label='Theoriekurve')
 
 
-xposition = [23*10**3, 45*10**3]
+xposition = [b_1*10**3, b_2*10**3]
 for xc in xposition:
     plt.axvline(x=xc, color='xkcd:grey', linestyle='--')
 
-plt.plot(x, y, 'rx', label='Messwerte')
+plt.plot(nu, U_c, 'rx', label='Messwerte')
 plt.plot((0, 56*10**3), (12.59, 12.59), color='xkcd:grey', linestyle='--')
-plt.plot(23*10**3, 12.59, 'k.')
+plt.plot(b*10**3, 12.59, 'k.')
 plt.plot(45*10**3, 12.59, 'k.')
 plt.xlabel(r'$\nu \,/\, \mathrm{Hz}$')
 plt.ylabel(r'$U_c \,/\, \mathrm{V}$')
