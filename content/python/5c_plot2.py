@@ -33,7 +33,7 @@ print("t", q_t, "e", q_e, b_t )#"res", w_res )
 #abs. 1
 u_b = ((1/np.sqrt(2))*(U_max)/10
 
-plt.plot(nu ,U_c ,'rx' ,label='Messwerte' )
+plt.plot(nu ,U_c ,'r-' ,label='Messwerte' )
 plt.xlimit(25000, 45000)
 plt.grid()
 
