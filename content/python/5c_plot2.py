@@ -25,9 +25,11 @@ print( "U_c", U, "nu", nu)
 U_max = 39
 q_e = U_max/10
 q_t = (1/(R_2+R_g))*(unp.sqrt(L/C))
-#w_0 = 34000
+w_0 = 34000
 #w_res = unp.sqrt((1/(L*C))-((R_2+R_g)**2/(2*(L)**2)))
 b_t = (R_2+R_g)/L
+b_t3= (R_1+R_g)/L
+b_t2 = 1/(2*np.pi*q_t*unp.sqrt(L*C))*10
 
 print("t", q_t, "e", q_e, b_t )#"res", w_res )
 #abs. 1
@@ -43,6 +45,9 @@ plt.grid()
 plt.axhline(Ua)
 plt.axvline(28900)
 plt.axvline(38300)
+
+b_e = 38300- 28900
+print(b_e, b_t2, b_t3)
 
 plt.xlabel(r'$nu/[1/s]$')
 plt.ylabel(r'$U_c/U$')
