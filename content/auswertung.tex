@@ -1,46 +1,87 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
+\subsection{verwendete Bauteile}
+
+Die verwendeten Werte der Bauteile sind:
+\begin{equation*}
+  L = \SI{10.11(3)e-3}{\henry}
+\end{equation*}
+\begin{equation*}
+  C = \SI{2.098(6)e-9}{\farad}
+\end{equation*}
+\begin{equation*}
+  R_{\text{1}} = \SI{48.1(1)}{\ohm}
+\end{equation*}
+\begin{equation*}
+  R_{\text{2}} = \SI{509.5(5)}{\ohm}.
+\end{equation*}
+
+\subsection{Messung A, gedämpfte Schwingung}
+
 \begin{figure}
   \centering
   \includegraphics{plot1.pdf}
-  \caption{Plot1.}
+  \caption{Einhüllende.}
   \label{fig:plot1}
 \end{figure}
+ Die positiven und negierten negativen Amplituden der Spannung $U$ werden gemeinsam
+gegen die Zeit $t$ in s aufgetragen (Abb.\ref{fig:plot1}) und dann ein Regressionsgraph
+unter Zuhilfenahme von Python mit
+\begin{equation*}
+  exp(a*x +b)
+\end{equation*}
+erstellt dessen
+\begin{equation*}
+   a = \num{-2.65(15)}\, \cdot\, 10^{4}
+\end{equation*}
+dem Exponenten $2\pi\nu$ aus (\ref{eqn:einhuellend}) entspricht.
+Hiermit lassen sich nach (\ref{tex}) und (\ref{reff}) mit dem verwendeten Widerstand $R_{\text{2}}$
+\begin{equation*}
+   T_{\text{ex}} = \SI{3.78(21)e5}{\per\second}
+\end{equation*}
+und
+\begin{equation*}
+R_{\text{eff,exp}} = \SI{535(30)}{\ohm}
+\end{equation*}
+berechnen.
+
+Im Vergleich mit dem verwendenten Widerstand $R_{\text{2}}$ ergibt sich eine Abweichung
+von $\SI{5.01}{\percent}$ die durch den Eigenwiderstand der Schaltung wie z.B. den Kondensator
+erklären lässt.
+
+\subsection{Messung B, Dämpfungswiderstand}
+Der theoretische Dämpfungswiderstand wird mit (\ref{eqn:R11}) zu
+\begin{equation}
+  R_{\text{ap,theo}} = \SI{4390(9)}{\ohm}
+  \end{equation}
+  berechen, während der gemessene experimentelle Wert
+\begin{equation}
+  R_{\text{ap,exp}} = \SI{3400}{\ohm}
+\end{equation}
+entspricht.
+Die prozentuale Abweichung ergibt sich als $\SI{22.55}{\percent}$ und ist durch
+die generelle Unsicherheit des Ablesens vom Oszillosgraphen, durch das Verstellen
+des variablen Widerstandes per Hand und den Eigenwiderstand der Schaltung  zu erklären.
+
+\subsection{Messung C, Frequenzabhängigkeit der Kondensatorspannung}
+
+Die Erregerspannung $U_{Erreger}$ beträgt 1V und wenn man $\frac{U_{C}}{U_{Erreger}}$
+ist diese halblogarithmisch möglich, da diese Größe einheitenlos ist (siehe Abb.\ref{fig:plot2}).
 
 \begin{figure}
   \centering
   \includegraphics{plot2.pdf}
-  \caption{Plot2.}
+  \caption{halblogarithmisch aufgetragen.}
   \label{fig:plot2}
 \end{figure}
 
-
-\subsection{5a}
-\begin{equation}
-   a = \num{-2.65(15)}\, \cdot\, 10^{4}
-\end{equation}
-
-\begin{equation}
-   T_{\text{ex}} = \SI{3.78(21)e5}{\per\second}
-\end{equation}
-
-\begin{equation}
-R_{\text{eff}} = \SI{535(30)}{\ohm}
-\end{equation}
-
-
-\subsection{5b}
-
-\begin{equation}
-  R_{\text{ap,theo}} = \SI{4390(9)}{\ohm}
-  \end{equation}
-\begin{equation}
-  R_{\text{ap,exp}} = \SI{3400}{\ohm}
-\end{equation}
-
-
-\subsection{5c}
+\begin{figure}
+  \centering
+  \includegraphics{plot3.pdf}
+  \caption{Plot3.}
+  \label{fig:plot3}
+\end{figure}
 
 \begin{equation}
   q_{\text{exp}} = 3.9
@@ -49,19 +90,54 @@ R_{\text{eff}} = \SI{535(30)}{\ohm}
   q_{\text{theo}} = \num{3.923(9)}
 \end{equation}
 
-
-
 \begin{equation}
-  \nu_{-} = 28900
+  \nu_{-,exp} = 28900
 \end{equation}
 \begin{equation}
-  \nu_{+} = 38300
+  \nu_{+,exp} = 38300
 \end{equation}
 
-daraus folgt 9400
 \begin{equation}
   (\nu_{+}-\nu_{-})_{\text{exp}} = \SI{9400}{\hertz}
 \end{equation}
 \begin{equation}
   (\nu_{+}-\nu_{-})_{\text{theo}} = \SI{8808(27)}{\hertz}
+\end{equation}
+
+\subsection{5d}
+
+\begin{figure}
+  \centering
+  \includegraphics{plot4.pdf}
+  \caption{Plot4.}
+  \label{fig:plot4}
+\end{figure}
+
+
+Theorie:
+
+\begin{equation}
+  w_{\text{1,theo}} = \SI{30.43(6)e3}{\hertz}
+\end{equation}
+
+\begin{equation}
+  w_{\text{2,theo}} = \SI{39.24(8)e3}{\hertz}
+\end{equation}
+
+\begin{equation}
+  w_{\text{res,theo}} = \SI{8.808(27)e3}{\hertz}
+\end{equation}
+
+Experimentell:
+
+\begin{equation}
+  w_{\text{1,exp}} = \SI{25e3}{\hertz}
+\end{equation}
+
+\begin{equation}
+  w_{\text{2,exp}} = \SI{34.55e3}{\hertz}
+\end{equation}
+
+\begin{equation}
+  w_{\text{res,exp}} = \SI{9.549e3}{\hertz}
 \end{equation}
