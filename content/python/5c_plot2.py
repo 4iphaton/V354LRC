@@ -31,16 +31,19 @@ b_t = (R_2+R_g)/L
 
 print("t", q_t, "e", q_e, b_t )#"res", w_res )
 #abs. 1
+u_b = ((1/np.sqrt(2))*(U_max)/10
 
-plt.plot(nu ,U_c_log ,'rx' ,label='Messwerte' )
+plt.plot(nu ,U_c ,'rx' ,label='Messwerte' )
+plt.xlimit(25000, 45000)
+plt.grid()
 
 
-#plt.axhline(U_b)
+plt.axhline(u_b)
 #plt.axvline
 
 plt.xlabel(r'$nu/[1/s]$')
-plt.ylabel(r'$log(U_c/U)$')
+plt.ylabel(r'$U_c/U$')
 plt.legend(loc='best')
 plt.tight_layout()
-plt.savefig('build/plot2.pdf')
+plt.savefig('build/plot3.pdf')
 print('-----------------')
