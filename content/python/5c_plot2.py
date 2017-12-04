@@ -41,7 +41,8 @@ plt.grid()
 #    return Ua * (x/x)
 
 plt.axhline(Ua)
-plt.axvline(2)
+plt.axvline(28900)
+plt.axvline(38300)
 
 plt.xlabel(r'$nu/[1/s]$')
 plt.ylabel(r'$U_c/U$')
