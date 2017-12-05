@@ -44,7 +44,7 @@ plt.axhline(Ua)
 plt.axvline(28900)
 plt.axvline(38300)
 
-plt.xlabel(r'$nu/[1/s]$')
+plt.xlabel(r'$\nu/[Hz]$')
 plt.ylabel(r'$U_c/U$')
 plt.legend(loc='best')
 plt.tight_layout()

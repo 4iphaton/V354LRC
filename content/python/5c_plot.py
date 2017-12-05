@@ -38,7 +38,7 @@ plt.plot(nu ,U_c_log ,'rx' ,label='Messwerte' )
 #plt.axhline(U_b)
 #plt.axvline
 
-plt.xlabel(r'$nu/[1/s]$')
+plt.xlabel(r'$\nu/[Hz]$')
 plt.ylabel(r'$log(U_c/U)$')
 plt.legend(loc='best')
 plt.tight_layout()

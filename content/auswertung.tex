@@ -16,6 +16,9 @@ Die verwendeten Werte der Bauteile sind:
 \begin{equation*}
   R_{\text{2}} = \SI{509.5(5)}{\ohm}.
 \end{equation*}
+\begin{equation*}
+  R_{\text{G}} = \SI{50}{\ohm}.
+\end{equation*}
 
 \subsection{Messung A, gedämpfte Schwingung}
 
@@ -29,7 +32,7 @@ Die verwendeten Werte der Bauteile sind:
 gegen die Zeit $t$ in s aufgetragen (Abb.\ref{fig:plot1}) und dann ein Regressionsgraph
 unter Zuhilfenahme von Python mit
 \begin{equation*}
-  exp(a*x +b)
+  \text{exp}(ax+b)
 \end{equation*}
 erstellt dessen
 \begin{equation*}
@@ -52,13 +55,13 @@ erklären lässt.
 
 \subsection{Messung B, Dämpfungswiderstand}
 Der theoretische Dämpfungswiderstand wird mit (\ref{eqn:R11}) zu
-\begin{equation}
+\begin{equation*}
   R_{\text{ap,theo}} = \SI{4390(9)}{\ohm}
-  \end{equation}
+\end{equation*}
   berechen, während der gemessene experimentelle Wert
-\begin{equation}
+\begin{equation*}
   R_{\text{ap,exp}} = \SI{3400}{\ohm}
-\end{equation}
+\end{equation*}
 entspricht.
 Die prozentuale Abweichung ergibt sich als $\SI{22.55}{\percent}$ und ist durch
 die generelle Unsicherheit des Ablesens vom Oszilloskop, durch das Verstellen
@@ -66,8 +69,9 @@ des variablen Widerstandes per Hand und den Eigenwiderstand der Schaltung  zu er
 
 \subsection{Messung C, Frequenzabhängigkeit der Kondensatorspannung}
 
-Die Erregerspannung $U_{Erreger}$ beträgt 1V und wenn man $\frac{U_{C}}{U_{Erreger}}$
-ist diese halblogarithmisch möglich, da diese Größe einheitenlos ist (siehe Abb.\ref{fig:plot2}).
+Es wird ein Gesamtwiderstand von $R_\text{2} + R_\text{G} $verwendet.
+Die Erregerspannung $U_{\text{Erreger}}$ beträgt 1V und wenn man $\frac{U_{C}}{U_{\text{Erreger}}}$
+verwendet ist diese halblogarithmisch auftragbar, da diese Größe einheitenlos ist (siehe Abb.\ref{fig:plot2}).
 
 \begin{figure}
   \centering
@@ -76,68 +80,94 @@ ist diese halblogarithmisch möglich, da diese Größe einheitenlos ist (siehe A
   \label{fig:plot2}
 \end{figure}
 
+Mit(\ref{eqn:qexp}) wird anschließend die Güte experimentell bestimmt und es ergibt sich:
+\begin{equation*}
+  q_{\text{exp}} = 3.9.
+\end{equation*}
+Worauf sich der theoretische Wert durch (\ref{eqn:qtheo}) berechnen lässt.
+\begin{equation*}
+  q_{\text{theo}} = \num{3.923(9)}.
+\end{equation*}
+
 \begin{figure}
   \centering
   \includegraphics{plot3.pdf}
-  \caption{Plot3.}
+  \caption{Bestimmung der Breite.}
   \label{fig:plot3}
 \end{figure}
 
-\begin{equation}
-  q_{\text{exp}} = 3.9
-\end{equation}
-\begin{equation}
-  q_{\text{theo}} = \num{3.923(9)}
-\end{equation}
-
-\begin{equation}
+In Abb.\ref{fig:plot3} wird der Plot vergrößert und eine Linie auf der Höhe
+$\frac{U_{C,max}}{\sqrt{2}}$ eingefügt. Dann werden die Messwerte linear
+verbunden um $\nu_{-,exp}\, \text{und}\,\nu_{+,exp}$ abzulesen. Damit dies
+genauer ist werden jeweils noch 2 weitere Linien hinzugefügt um besser an der y-Achse
+ablesen zu können.
+Die abzulesenden Werte und somit auch die Positionen der Linien sind
+\begin{equation*}
   \nu_{-,exp} = 28900
-\end{equation}
-\begin{equation}
+\end{equation*}
+\begin{equation*}
   \nu_{+,exp} = 38300
-\end{equation}
-
-\begin{equation}
+\end{equation*}
+woraus sich die Breite
+\begin{equation*}
   (\nu_{+}-\nu_{-})_{\text{exp}} = \SI{9400}{\hertz}
-\end{equation}
-\begin{equation}
+\end{equation*}
+ergibt. Wohingegen die mit (\ref{eqn:breite}) berechnete Breite
+\begin{equation*}
   (\nu_{+}-\nu_{-})_{\text{theo}} = \SI{8808(27)}{\hertz}
-\end{equation}
+\end{equation*}
+ist.
 
-\subsection{5d}
+Die Güte besitzt eine prozentuale Abweichung von $\SI{0.5}{\percent}$ von experimentellem
+zu theoretischen Wert und $(\nu_{+}-\nu_{-})$ eine Abweichung von $\SI{6.72}{\percent}$.
 
+\subsection{Messung D, Frequenzabhängigkeit der Phase}
+
+Bei dieser Messung wird die Phase $\Phi$ im Bogenmaß gegen die Frequenzen $\nu$ in kHz aufgetragen
+und jeweils erneut Geraden für in den Plot (siehe Abb.\ref{fig:plot4}) eingebracht um die
+experimentellen $\nu$ abzulesen.
 \begin{figure}
   \centering
   \includegraphics{plot4.pdf}
-  \caption{Plot4.}
+  \caption{Frequenzabhängigkeit der Phase.}
   \label{fig:plot4}
 \end{figure}
+Abzulesen ist dann
+\begin{equation*}
+  \nu_{\text{1,exp}} = \SI{25e3}{\hertz}
+\end{equation*}
+für $\phi = \frac{\pi}{4}$,
+\begin{equation*}
+  \nu_{\text{2,exp}} = \SI{34.55e3}{\hertz}
+\end{equation*}
+für $\phi = \frac{3\pi}{4}$ und
+\begin{equation*}
+  \nu_{\text{res,exp}} = \SI{32e3}{\hertz}
+\end{equation*}
+für $\phi = \frac{\pi}{2}$.
+
+Mit (\ref{o12}) und (\ref{eqn:ores}) ergeben sich unter Beachtung von (\ref{c1})
+die folgenden theoretischen Werte der unterschiedlichen $\nu$:
+\begin{equation*}
+  \nu_{\text{1,theo}} = \SI{30.43(6)e3}{\hertz}
+\end{equation*}
+\begin{equation*}
+  \nu_{\text{2,theo}} = \SI{39.24(8)e3}{\hertz}
+\end{equation*}
+\begin{equation*}
+  \nu_{\text{res,theo}} = \SI{34.56(7)e3}{\hertz}.
+\end{equation*}
 
 
-Theorie:
 
-\begin{equation}
-  w_{\text{1,theo}} = \SI{30.43(6)e3}{\hertz}
-\end{equation}
 
-\begin{equation}
-  w_{\text{2,theo}} = \SI{39.24(8)e3}{\hertz}
-\end{equation}
+%\begin{equation*}
+%  w_{\text{res,theo}} = \SI{8.808(27)e3}{\hertz}
+%\end{equation*}
 
-\begin{equation}
-  w_{\text{res,theo}} = \SI{8.808(27)e3}{\hertz}
-\end{equation}
+%vgl omega1 - omega2 und finde breite omega_res
 
-Experimentell:
 
-\begin{equation}
-  w_{\text{1,exp}} = \SI{25e3}{\hertz}
-\end{equation}
-
-\begin{equation}
-  w_{\text{2,exp}} = \SI{34.55e3}{\hertz}
-\end{equation}
-
-\begin{equation}
-  w_{\text{res,exp}} = \SI{9.549e3}{\hertz}
-\end{equation}
+%\begin{equation*}
+%  w_{\text{res,exp}} = \SI{9.549e3}{\hertz}
+%\end{equation*}
