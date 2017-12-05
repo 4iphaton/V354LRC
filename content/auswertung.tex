@@ -22,6 +22,42 @@ Die verwendeten Werte der Bauteile sind:
 
 \subsection{Messung A, gedämpfte Schwingung}
 
+\begin{table}[h]
+  \centering
+  \label{tab:posA}
+  \begin{tabular}{ c c }
+    \toprule
+    {$\text{t} \,\, \text{in} \,\,\si{\second}$}
+   &{$\text{U} \,\, \text{in} \,\si{\volt}$} \\
+
+    \midrule
+    0       & 12.5 \\
+    0.00003 &  5   \\
+    0.00006 &  2.25\\
+    0.00009 &  1   \\
+    \bottomrule
+  \end{tabular}
+  \caption{positive Amplituden.}
+\end{table}
+
+\begin{table}[h]
+  \centering
+  \label{tab:negA}
+  \begin{tabular}{ c c }
+    \toprule
+    {$\text{t} \,\, \text{in} \,\,\si{\second}$}
+   &{$\text{U} \,\, \text{in} \,\si{\volt}$} \\
+
+    \midrule
+    0.000015 & -9   \\
+    0.000045 & -4.25\\
+    0.000075 & -2   \\
+    0.000105 & -1   \\
+    \bottomrule
+  \end{tabular}
+  \caption{negative Amplituden.}
+\end{table}
+
 \begin{figure}
   \centering
   \includegraphics{plot1.pdf}
@@ -63,6 +99,36 @@ Der theoretische Dämpfungswiderstand wird mit (\ref{eqn:R11}) zu
 entspricht.
 
 \subsection{Messung C, Frequenzabhängigkeit der Kondensatorspannung}
+
+\begin{table}[h]
+  \centering
+  \label{tab:Uc}
+  \begin{tabular}{ c c }
+    \toprule
+    {$U_{\text{C}} \,\, \text{in} \,\si{\volt}$}
+   &{$\nu \,\, \text{in} \,\si{\hertz}$} \\
+
+    \midrule
+    1.050  & 10000 \\
+    1.175  & 15000 \\
+    1.420  & 20000 \\
+    1.950  & 25000 \\
+    3.000  & 30000 \\
+    3.600  & 32000 \\
+    3.750  & 33000 \\
+    3.900  & 34000 \\
+    3.800  & 35000 \\
+    3.500  & 36000 \\
+    2.850  & 38000 \\
+    2.200  & 40000 \\
+    1.250  & 45000 \\
+    0.730  & 50000 \\
+    0.600  & 55000 \\
+
+    \bottomrule
+  \end{tabular}
+  \caption{Kondensatorspannung mit Tastkopf auf x10 gestellt.}
+\end{table}
 
 Es wird ein Gesamtwiderstand von $R_\text{2} + R_\text{G} $verwendet.
 Die Erregerspannung $U_{\text{Erreger}}$ beträgt 1V und wenn man $\frac{U_{C}}{U_{\text{Erreger}}}$
@@ -113,10 +179,38 @@ ergibt. Wohingegen die mit (\ref{eqn:breite}) berechnete Breite
 \end{equation*}
 ist.
 
-Die Güte besitzt eine prozentuale Abweichung von $\SI{0.5}{\percent}$ von experimentellem
-zu theoretischen Wert und $(\nu_{+}-\nu_{-})$ eine Abweichung von $\SI{6.72}{\percent}$.
-
 \subsection{Messung D, Frequenzabhängigkeit der Phase}
+
+\begin{table}[h]
+  \centering
+  \label{tab:Uc}
+  \begin{tabular}{ c c }
+    \toprule
+    {$\Phi \,\, \text{in} \,\si{\mu\second}$}
+   &{$\nu \,\, \text{in} \,\si{\hertz}$} \\
+
+    \midrule
+    2.00    & 10000 \\
+    2.00    & 15000 \\
+    2.00    & 20000 \\
+    2.50    & 25000 \\
+    4.00    & 30000 \\
+    5.00    & 32000 \\
+    6.00    & 33000 \\
+    7.00    & 34000 \\
+    7.75    & 35000 \\
+    8.50    & 36000 \\
+    9.50    & 38000 \\
+    10.00   & 40000 \\
+    10.00   & 45000 \\
+    9.50    & 50000 \\
+    9.00    & 55000 \\
+
+
+    \bottomrule
+  \end{tabular}
+  \caption{Messwerte Phase.}
+\end{table}
 
 Bei dieser Messung wird die Phase $\Phi$ im Bogenmaß gegen die Frequenzen $\nu$ in kHz aufgetragen
 und jeweils erneut Geraden für in den Plot (siehe Abb.\ref{fig:plot4}) eingebracht um die
