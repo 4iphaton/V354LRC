@@ -13,7 +13,7 @@ phi *= 2*const.pi/20
 phi = np.log(phi)
 
 plt.plot(nu, phi, 'kx', label='Phase logarithmisch')
-plt.xlabel(r'$\omega / [kHz]$')
+plt.xlabel(r'$\omega [kHz]$')
 plt.ylabel(r'$\phi / rad$')
 plt.legend(loc='best')
 plt.tight_layout()
