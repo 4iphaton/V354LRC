@@ -33,6 +33,7 @@ print("t", q_t, "e", q_e, b_t )#"res", w_res )
 #abs. 1
 
 plt.plot(nu ,U_c_log ,'rx' ,label='Messwerte' )
+plt.plot(nu ,U_c_log ,'b-' ,label='verbundene Werte' )
 
 
 #plt.axhline(U_b)

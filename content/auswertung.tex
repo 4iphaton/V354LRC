@@ -20,6 +20,9 @@ Die verwendeten Werte der Bauteile sind:
   R_{\text{G}} = \SI{50}{\ohm}.
 \end{equation*}
 
+Da zur Berechnung der Theoriewerte diese Bauteile verwendet werden sind diese
+in folgenden Rechnungen fehlerbehaftet.
+
 \subsection{Messung A, gedämpfte Schwingung}
 
 \begin{table}[h]
@@ -67,23 +70,29 @@ Die verwendeten Werte der Bauteile sind:
  Die positiven und negierten negativen Amplituden der Spannung $U$ werden gemeinsam
 gegen die Zeit $t$ in s aufgetragen (Abb.\ref{fig:plot1}) und dann ein Regressionsgraph
 unter Zuhilfenahme von Python mit
-\begin{equation*}
-   F(x) = \text{exp}(ax+b)
-\end{equation*}
+\begin{equation}
+   F(x) = b\cdot\text{exp}(ax)
+\end{equation}
 erstellt, dessen
 \begin{equation*}
-   a = \num{-2.65(15)}\, \cdot\, 10^{4}
+   %a = (\num{-2.65(15)})\, \cdot\, 10^{4}
+   a = \SI{-2.65(15)e4}{\hertz}
 \end{equation*}
 dem Exponenten $2\pi\mu$ aus (\ref{eqn:einhuellend}) entspricht.
 Hiermit lassen sich nach (\ref{tex}) und (\ref{reff}) mit dem verwendeten Widerstand $R_{\text{2}}$
 \begin{equation*}
-   T_{\text{ex}} = \SI{3.78(21)e5}{\per\second}
+   T_{\text{ex}} = \SI{3.78(21)e5}{\second}
 \end{equation*}
-und
+, mit
+\begin{equation}
+  \increment T_{ex} = \pm \sqrt{\left(\frac{-1}{a^2}\, \increment a \right)^2}
+\end{equation}
+wird der dazugehörige Fehler berechnet und
 \begin{equation*}
 R_{\text{eff,exp}} = \SI{535(30)}{\ohm}
 \end{equation*}
 berechnen.
+
 
 
 
@@ -149,6 +158,13 @@ Worauf sich der theoretische Wert durch (\ref{eqn:qtheo}) berechnen lässt.
 \begin{equation*}
   q_{\text{theo}} = \num{3.923(9)}.
 \end{equation*}
+Der vorliegende Fehler wird durch
+\begin{equation*}
+  \increment q_{theo} = \pm \sqrt{\left(\frac{-1}{R^2}\sqrt{\frac{L}{C}}\, \increment R \right)^2 +
+  \left(\frac{1}{2R\sqrt{LC}}\, \increment L \right)^2 + \left(\frac{-\sqrt{L}}{2RC^{\frac{3}{2}}}\, \increment C \right)^2}
+\end{equation*}
+errechnet.
+
 
 \begin{figure}
   \centering
@@ -164,10 +180,10 @@ genauer ist werden jeweils noch 2 weitere Linien hinzugefügt um besser an der y
 ablesen zu können.
 Die abzulesenden Werte und somit auch die Positionen der Linien sind
 \begin{equation*}
-  \nu_{-,exp} = 28900
+  \nu_{-,exp} = \SI{28900}{\hertz}
 \end{equation*}
 \begin{equation*}
-  \nu_{+,exp} = 38300
+  \nu_{+,exp} = \SI{38300}{\hertz}
 \end{equation*}
 woraus sich die Breite
 \begin{equation*}
@@ -177,7 +193,13 @@ ergibt. Wohingegen die mit (\ref{eqn:breite}) berechnete Breite
 \begin{equation*}
   (\nu_{+}-\nu_{-})_{\text{theo}} = \SI{8808(27)}{\hertz}
 \end{equation*}
-ist.
+ergibt und sich der Fehler mit
+\begin{equation*}
+  \increment (\nu_{+}-\nu_{-})_{\text{theo}} = \pm \frac{1}{2\pi}\sqrt{
+  \left(\frac{\increment R}{L}\right)^2 +
+  \left(\frac{-R\increment L}{L^2}\right)^2}
+\end{equation*}
+fortpflanzt.
 
 \subsection{Messung D, Frequenzabhängigkeit der Phase}
 
@@ -246,6 +268,50 @@ die folgenden theoretischen Werte der unterschiedlichen $\nu$:
 \begin{equation*}
   \nu_{\text{res,theo}} = \SI{34.56(7)e3}{\hertz}.
 \end{equation*}
+Hierbei pflanzt sich der Fehler für $\nu_{\text{1/2,theo}}$ mit
+%\begin{equation*}
+  %\begin{split}
+  %  \increment \nu_{\text{1/2,theo}} = \pm \frac{1}{2\pi} &\sqrt{
+  %  \left(\left(\frac{R}{4L^2\sqrt{\frac{R^2}{4L^2} +\frac{1}{LC}}}\pm \frac{1}{2L}\right) \, \increment R \right)^2
+  %  + \left(\frac{1}{2R\sqrt{LC}}\, \increment L \right)^2} \\
+  %  &\overline{ +\left(\frac{-\sqrt{L}}{2RC^{\frac{3}{2}}}\, \increment C \right)^2}
+  %\end{split}
+\begin{equation*}
+  \increment \nu_{\text{1/2,theo}} = \pm \frac{1}{2\pi} \sqrt{ k_1 + k_2 + k_3}
+\end{equation*}
+\begin{equation*}
+ k_1 = \left(\left(\frac{R}{4L^2\sqrt{\frac{R^2}{4L^2} +\frac{1}{LC}}}\pm \frac{1}{2L}\right) \, \increment R \right)^2
+\end{equation*}
+\begin{equation*}
+k_2 = \left(\left(
+   \mp\frac{R}{2L^2}-\frac{\frac{1}{CL^2}+\frac{R^2}{2L^3}}{2\sqrt{\frac{1}{CL}+\frac{R^2}{4L^2}}}
+\right) \, \increment L \right)^2
+\end{equation*}
+\begin{equation*}
+k_3 =  \left(\left(
+     -\frac{1}{2LC^2\sqrt{\frac{1}{LC}+\frac{R^2}{4L^2}}}
+  \right) \, \increment C \right)^2
+\end{equation*}
+und für $\nu_{\text{res,theo}}$ mit
+\begin{equation*}
+\increment \nu_{\text{res,theo}} = \pm \frac{1}{2\pi}\sqrt{p_1 + p_2 + p_3}
+\end{equation*}
+\begin{equation*}
+ p_1 = \left(\frac{-R}{2L\sqrt{\frac{1}{LC}-\frac{R^2}{2L}}} \, \increment R \right)^2
+\end{equation*}
+\begin{equation*}
+p_2 = \left(
+   \frac{CR^2-2}{4CL^2\sqrt{\frac{1}{CL}-\frac{R^2}{2L}}}
+ \, \increment L \right)^2
+\end{equation*}
+\begin{equation*}
+p_3 =  \left(
+     -\frac{1}{2LC^2\sqrt{\frac{1}{LC}-\frac{R^2}{4L^2}}}
+   \, \increment C \right)^2
+\end{equation*}
+fort.
+
+
 
 
 
